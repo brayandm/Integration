@@ -6,7 +6,7 @@ def function(x):
 
 	try:
 
-		return x
+		return 0
 
 	except NameError:
 
