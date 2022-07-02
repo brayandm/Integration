@@ -4,14 +4,8 @@ from errors import *
 def evaluate_function(function, x):
 
     try:
-
-        y = function(x)
-
-        if y[1] != 0:
-
-            return None
         
-        return float(y[0])
+        return float(function(x))
 
     except:
 

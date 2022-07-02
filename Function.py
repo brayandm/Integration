@@ -6,14 +6,14 @@ def function(x):
 
 	try:
 
-		return (x, 0)
+		return x
 
 	except NameError:
 
 		name_error()
 
-		return (0, -1)
+		return None
 
 	except:
 
-		return (0, -1)
+		return None

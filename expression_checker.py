@@ -12,3 +12,7 @@ def expression_checker(expression_string):
     if os.system('python cache\\function_checker.py') != 0:
 
         syntax_error()
+
+    os.system('erase cache\\function_checker.py')
+
+    return True
