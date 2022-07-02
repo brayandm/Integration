@@ -113,7 +113,7 @@ if check_name_error():
 
     exit(0)
 
-if check_integration_error() or value == float('-inf') or value == float('inf'):
+if check_infinity_error() or value == float('-inf') or value == float('inf'):
 
     print('\nThe function has a infinity integral')
 
