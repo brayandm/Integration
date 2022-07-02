@@ -7,7 +7,7 @@ from parser import *
 from errors import *
 from plot import *
 
-ITERATIONS = 100000
+ITERATIONS = 10000
 
 while True:
 
@@ -105,11 +105,17 @@ while True:
 
         break
 
-val = simpson_rule(new_function, new_lim_a, new_lim_b, ITERATIONS)
+value = simpson_rule(new_function, new_lim_a, new_lim_b, ITERATIONS)
 
 if check_name_error():
 
     print('\nThere is a variable name error, the variable name in the function must be \'x\'')
+
+    exit(0)
+
+if check_integration_error() or value == float('-inf') or value == float('inf'):
+
+    print('\nThe function has a infinity integral')
 
     exit(0)
 
@@ -121,16 +127,16 @@ if check_integration_error():
 
 if lim_a == float('-inf') and lim_b == float('inf'):
 
-    plot_function(function, cad, -100, 100, -100, 100, val, lim_a, lim_b, ITERATIONS)
+    plot_function(function, cad, -100, 100, -100, 100, value, lim_a, lim_b, ITERATIONS)
 
 elif lim_a == float('-inf'):
 
-    plot_function(function, cad, lim_b - 10*abs(lim_b), lim_b + abs(lim_b), lim_b - 10*abs(lim_b), lim_b, val, lim_a, lim_b, ITERATIONS)
+    plot_function(function, cad, lim_b - 10*abs(lim_b), lim_b + abs(lim_b), lim_b - 10*abs(lim_b), lim_b, value, lim_a, lim_b, ITERATIONS)
 
 elif lim_b == float('inf'):
 
-    plot_function(function, cad, lim_a - abs(lim_a), lim_a + 10*abs(lim_a), lim_a, lim_a + 10*abs(lim_a), val, lim_a, lim_b, ITERATIONS)
+    plot_function(function, cad, lim_a - abs(lim_a), lim_a + 10*abs(lim_a), lim_a, lim_a + 10*abs(lim_a), value, lim_a, lim_b, ITERATIONS)
 
 else:
 
-    plot_function(new_function, cad, lim_a - (lim_b - lim_a) * 0.2, lim_b + (lim_b - lim_a) * 0.2, lim_a, lim_b, val, lim_a, lim_b, ITERATIONS)
+    plot_function(new_function, cad, lim_a - (lim_b - lim_a) * 0.2, lim_b + (lim_b - lim_a) * 0.2, lim_a, lim_b, value, lim_a, lim_b, ITERATIONS)

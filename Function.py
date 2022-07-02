@@ -14,8 +14,6 @@ def function(x):
 
 		return None
 
-	except Exception as e:
-
-		print(e)
+	except:
 
 		return None
