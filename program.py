@@ -7,7 +7,7 @@ from parser import *
 from errors import *
 from plot import *
 
-ITERATIONS = 10000
+ITERATIONS = 100000
 
 while True:
 
@@ -113,6 +113,12 @@ if check_name_error():
 
     exit(0)
 
+if check_integration_error():
+
+    print('\nThe function is not integrable in this interval')
+
+    exit(0)
+
 if check_infinity_error() or value == float('-inf') or value == float('inf'):
 
     print('\nThe function has a infinity integral')
@@ -125,23 +131,17 @@ if check_infinity_error() or value == float('-inf') or value == float('inf'):
 
         value = float('-inf')
 
-elif check_integration_error():
-
-    print('\nThe function is not integrable in this interval')
-
-    exit(0)
-
 if lim_a == float('-inf') and lim_b == float('inf'):
 
     plot_function(function, cad, -100, 100, -100, 100, value, lim_a, lim_b, ITERATIONS)
 
 elif lim_a == float('-inf'):
 
-    plot_function(function, cad, lim_b - 10*abs(lim_b), lim_b + abs(lim_b), lim_b - 10*abs(lim_b), lim_b, value, lim_a, lim_b, ITERATIONS)
+    plot_function(function, cad, lim_b - 10*max(1,abs(lim_b)), lim_b + max(1,abs(lim_b)), lim_b - 10*max(1,abs(lim_b)), lim_b, value, lim_a, lim_b, ITERATIONS)
 
 elif lim_b == float('inf'):
 
-    plot_function(function, cad, lim_a - abs(lim_a), lim_a + 10*abs(lim_a), lim_a, lim_a + 10*abs(lim_a), value, lim_a, lim_b, ITERATIONS)
+    plot_function(function, cad, lim_a - max(1,abs(lim_a)), lim_a + 10*max(1,abs(lim_a)), lim_a, lim_a + 10*max(1,abs(lim_a)), value, lim_a, lim_b, ITERATIONS)
 
 else:
 

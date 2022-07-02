@@ -4,9 +4,15 @@ from errors import *
 
 def function(x):
 
+	x = float(x)
+
 	try:
 
-		return e**x
+		return 3
+
+	except OverflowError:
+
+		return float('inf')
 
 	except NameError:
 
