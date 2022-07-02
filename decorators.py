@@ -1,59 +1,59 @@
-def inf_to_inf(function, lim_a, lim_b):
+# def inf_to_inf(function, lim_a, lim_b):
 
-    def new_function(x):
+#     def new_function(x):
 
-        value = function(x / (1 - x*x))
+#         value = function(x / (1 - x*x))
 
-        if value == None:
+#         if value == None:
 
-            return None
+#             return None
 
-        try:
+#         try:
 
-            return value * (1 + x*x) / (1 - x*x) / (1 - x*x)
+#             return value * (1 + x*x) / (1 - x*x) / (1 - x*x)
 
-        except:
+#         except:
 
-            return None
+#             return None
 
-    return new_function
+#     return new_function
 
-def inf_to_float(function, lim_a, lim_b):
+# def inf_to_float(function, lim_a, lim_b):
 
-    def new_function(x):
+#     def new_function(x):
 
-        value = function(lim_b - (1 - x) / x)
+#         value = function(lim_b - (1 - x) / x)
 
-        if value == None:
+#         if value == None:
 
-            return None
+#             return None
 
-        try:
+#         try:
 
-            return value / (x) / (x)
+#             return value / (x) / (x)
 
-        except:
+#         except:
 
-            return None
+#             return None
 
-    return new_function
+#     return new_function
 
-def float_to_inf(function, lim_a, lim_b):
+# def float_to_inf(function, lim_a, lim_b):
 
-    def new_function(x):
+#     def new_function(x):
 
-        value = function(lim_a + x / (1 - x))
+#         value = function(lim_a + x / (1 - x))
 
-        if value == None:
+#         if value == None:
 
-            return None
+#             return None
 
-        try:
+#         try:
 
-            return value / (1 - x) / (1 - x)
+#             return value / (1 - x) / (1 - x)
 
-        except:
+#         except:
 
-            return None
+#             return None
 
-    return new_function
+#     return new_function

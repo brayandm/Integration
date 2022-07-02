@@ -1,19 +1,19 @@
-from math import *
+# from math import *
 
-from errors import *
+# from errors import *
 
-def function(x):
+# def function(x):
 
-	try:
+# 	try:
 
-		return e**x
+# 		return e**x
 
-	except NameError:
+# 	except NameError:
 
-		name_error()
+# 		name_error()
 
-		return None
+# 		return None
 
-	except:
+# 	except:
 
-		return None
+# 		return None
