@@ -1,79 +1,79 @@
-# def syntax_error():
+def syntax_error():
     
-#     file = open('cache\\SyntaxError.txt', 'w')
+    file = open('cache\\SyntaxError.txt', 'w')
 
-#     file.close()
+    file.close()
 
-# def name_error():
+def name_error():
     
-#     file = open('cache\\NameError.txt', 'w')
+    file = open('cache\\NameError.txt', 'w')
 
-#     file.close()
+    file.close()
 
-# def integration_error():
+def integration_error():
 
-#     file = open('cache\\IntegrationError.txt', 'w')
+    file = open('cache\\IntegrationError.txt', 'w')
 
-#     file.close()
+    file.close()
 
-# def infinity_error():
+def infinity_error():
 
-#     file = open('cache\\InfinityError.txt', 'w')
+    file = open('cache\\InfinityError.txt', 'w')
 
-#     file.close()
+    file.close()
 
-# def check_syntax_error():
+def check_syntax_error():
 
-#     try:
+    try:
 
-#         file = open('cache\\SyntaxError.txt', 'r')
+        file = open('cache\\SyntaxError.txt', 'r')
 
-#         file.close()
+        file.close()
 
-#         return True
+        return True
     
-#     except:
+    except:
 
-#         return False
+        return False
 
-# def check_name_error():
+def check_name_error():
     
-#     try:
+    try:
 
-#         file = open('cache\\NameError.txt', 'r')
+        file = open('cache\\NameError.txt', 'r')
 
-#         file.close()
+        file.close()
 
-#         return True
+        return True
     
-#     except:
+    except:
 
-#         return False
+        return False
 
-# def check_integration_error():
+def check_integration_error():
 
-#     try:
+    try:
 
-#         file = open('cache\\IntegrationError.txt', 'r')
+        file = open('cache\\IntegrationError.txt', 'r')
 
-#         file.close()
+        file.close()
 
-#         return True
+        return True
     
-#     except:
+    except:
 
-#         return False
+        return False
 
-# def check_infinity_error():
+def check_infinity_error():
 
-#     try:
+    try:
 
-#         file = open('cache\\InfinityError.txt', 'r')
+        file = open('cache\\InfinityError.txt', 'r')
 
-#         file.close()
+        file.close()
 
-#         return True
+        return True
     
-#     except:
+    except:
 
-#         return False
+        return False
