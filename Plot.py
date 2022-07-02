@@ -1,75 +1,38 @@
 import matplotlib.pyplot as pyplot
-import numpy
-import math
+from evaluate import *
 
-def EvalFunction(func, pointX):
+def delete_nones(list_a, list_b):
 
-    pointY = []
+    assert(len(list_a) == len(list_b))
 
-    for x in pointX:
+    list = []
 
-        try:
+    for i in range(len(list_a)):
 
-            y = func(x)[0]
-            
-            if type(y) == complex:
+        if list_a[i] != None and list_b[i] != None:
 
-                pointY.append(None)
-            
-            else:
+            list.append((list_a[i], list_b[i]))
 
-                pointY.append(float(y))
+    list_a.clear()
+    list_b.clear()
 
-        except:
+    for x in list:
 
-            pointY.append(None)
+        list_a.append(x[0])
+        list_b.append(x[1])
 
-    return pointY
-
-
-def DeleteNones(pointX, pointY):
-
-    assert(len(pointX) == len(pointY))
-
-    points = []
-
-    for i in range(len(pointX)):
-
-        if pointX[i] != None and pointY[i] != None:
-
-            points.append((pointX[i], pointY[i]))
-
-    pointX.clear()
-    pointY.clear()
-
-    for point in points:
-
-        pointX.append(point[0])
-        pointY.append(point[1])
-
-
-def PlotFunction(func, funcString, a, b, limA, limB, value):
-
-    print(a)
-    print(b)
-    print(limA)
-    print(limB)
+def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_lim_b, number_of_points):
 
     assert(a <= b)
     assert(limA <= limB)
 
-    granularity = 100
+    coordinates = evaluate_function_in_range(func, a, b, number_of_points)
+    (coordinatesX, coordinatesY) = coordinates
 
-    coordinatesX = numpy.linspace(a, b, granularity).tolist()
-    coordinatesY = EvalFunction(func, coordinatesX)
-    print(coordinatesX)
-    print(coordinatesY)
-
-    DeleteNones(coordinatesX, coordinatesY)
+    delete_nones(coordinatesX, coordinatesY)
 
     integralLimits = [(limA <= x and x <= limB) for x in coordinatesX]
 
-    
     blue = [y > 0 for y in coordinatesY]
     red = [y < 0 for y in coordinatesY]
 
@@ -80,13 +43,28 @@ def PlotFunction(func, funcString, a, b, limA, limB, value):
 
     pyplot.fill_between(coordinatesX, coordinatesY, facecolor = "lightskyblue", where = blue)
     pyplot.fill_between(coordinatesX, coordinatesY, facecolor = "lightpink", where = red)
-    pyplot.title(r'$\int_{%.2f}^{%.2f}%s=%.2f$' % (float(limA), float(limB), str(funcString), float(value)))
+
+    if float(print_lim_a) == float('-inf') and float(print_lim_b) == float('inf'):
+    
+        pyplot.title(r'$\int_{-\infty}^{\infty}%s=%.2f$' % (str(funcString), float(value)))
+
+    elif float(print_lim_a) == float('-inf'):
+    
+        pyplot.title(r'$\int_{-\infty}^{%.2f}%s=%.2f$' % (float(print_lim_b), str(funcString), float(value)))
+
+    elif float(print_lim_b) == float('inf'):
+    
+        pyplot.title(r'$\int_{%.2f}^{\infty}%s=%.2f$' % (float(print_lim_a), str(funcString), float(value)))
+
+    else:
+    
+        pyplot.title(r'$\int_{%.2f}^{%.2f}%s=%.2f$' % (float(print_lim_a), float(print_lim_b), str(funcString), float(value)))
+
     pyplot.plot(coordinatesX, coordinatesY) 
     pyplot.grid()
     pyplot.axhline(0, color = "gray")
     pyplot.axvline(0, color = "gray")
     pyplot.xlim(a, b)
-
 
     for i in range(len(coordinatesX)):
 

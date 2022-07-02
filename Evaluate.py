@@ -29,9 +29,9 @@ def evaluate_function_list(function, coordinates_x):
     return coordinates_y
 
 
-def evaluate_function_in_range(function, a, b, number_of_points):
+def evaluate_function_in_range(function, lim_a, lim_b, number_of_points):
 
-    coordinates_x = numpy.linspace(a, b, number_of_points).tolist()
+    coordinates_x = numpy.linspace(lim_a, lim_b, number_of_points).tolist()
     coordinates_y = evaluate_function_list(function, coordinates_x)
 
     return (coordinates_x, coordinates_y)

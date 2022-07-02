@@ -6,7 +6,7 @@ def function(x):
 
 	try:
 
-		return 0
+		return e**x
 
 	except NameError:
 
@@ -14,6 +14,8 @@ def function(x):
 
 		return None
 
-	except:
+	except Exception as e:
+
+		print(e)
 
 		return None
