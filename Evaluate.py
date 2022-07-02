@@ -1,4 +1,5 @@
 import numpy
+from errors import *
 
 def evaluate_function(function, x):
 
@@ -29,11 +30,7 @@ def evaluate_function_list(function, coordinates_x):
 
         if coordinates_y[i] == None and coordinates_y[i + 1] == None:
 
-            file = open('Cache\\IntegrationError.txt', 'w')
-
-            file.write('True')
-
-            file.close()
+            integration_error()
 
     return coordinates_y
 

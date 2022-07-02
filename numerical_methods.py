@@ -1,4 +1,4 @@
-from Evaluate import evaluate_function_in_range
+from evaluate import evaluate_function_in_range
 import math
 
 def rectangle_rule(function, lim_a, lim_b, iterations):

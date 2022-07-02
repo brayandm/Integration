@@ -1,5 +1,7 @@
 from math import *
 
+from errors import *
+
 def function(x):
 
 	try:
@@ -8,11 +10,7 @@ def function(x):
 
 	except NameError:
 
-		file = open('Cache\\NameError.txt', 'w')
-
-		file.write('True')
-
-		file.close()
+		name_error()
 
 		return (0, -1)
 
