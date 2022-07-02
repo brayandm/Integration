@@ -10,7 +10,7 @@ def EvalFunction(func, pointX):
 
         try:
 
-            y = func(x)
+            y = func(x)[0]
             
             if type(y) == complex:
 
@@ -18,7 +18,7 @@ def EvalFunction(func, pointX):
             
             else:
 
-                pointY.append(y)
+                pointY.append(float(y))
 
         except:
 
@@ -50,17 +50,25 @@ def DeleteNones(pointX, pointY):
 
 def PlotFunction(func, funcString, a, b, limA, limB, value):
 
+    print(a)
+    print(b)
+    print(limA)
+    print(limB)
+
     assert(a <= b)
     assert(limA <= limB)
 
-    granularity = 100000
+    granularity = 100
 
     coordinatesX = numpy.linspace(a, b, granularity).tolist()
     coordinatesY = EvalFunction(func, coordinatesX)
+    print(coordinatesX)
+    print(coordinatesY)
 
     DeleteNones(coordinatesX, coordinatesY)
 
     integralLimits = [(limA <= x and x <= limB) for x in coordinatesX]
+
     
     blue = [y > 0 for y in coordinatesY]
     red = [y < 0 for y in coordinatesY]

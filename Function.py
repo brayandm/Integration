@@ -4,7 +4,7 @@ def func(x):
 
 	try:
 
-		return (x**2, 0)
+		return (x, 0)
 
 	except:
 
