@@ -1,4 +1,5 @@
 import os
+from errors import *
 
 def expression_checker(expression_string):
 
@@ -8,8 +9,6 @@ def expression_checker(expression_string):
 
     file.close()
 
-    flag = os.system('python cache\\function_checker.py') == 0
+    if os.system('python cache\\function_checker.py') != 0:
 
-    os.system('erase cache\\function_checker.py')
-
-    return flag
+        syntax_error()
