@@ -117,9 +117,15 @@ if check_integration_error() or value == float('-inf') or value == float('inf'):
 
     print('\nThe function has a infinity integral')
 
-    exit(0)
+    if value > 0:
 
-if check_integration_error():
+        value = float('inf')
+
+    else:
+
+        value = float('-inf')
+
+elif check_integration_error():
 
     print('\nThe function is not integrable in this interval')
 
