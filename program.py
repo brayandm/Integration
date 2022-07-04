@@ -12,7 +12,6 @@ from tkinter import messagebox
 import tkinter
 
 ITERATIONS = 100000
-RELATIVE_ERROR = 0.01
 
 def close_program():
 
@@ -40,6 +39,7 @@ def validate():
     function_string = function_entry.get()
     lim_a = lim_a_entry.get()
     lim_b = lim_b_entry.get()
+    relative_error = relative_error_entry.get()
 
     expression_checker(function_string)
 
@@ -73,11 +73,28 @@ def validate():
 
         return
 
-    if lim_a > lim_b:
+    if float(lim_a) > float(lim_b):
 
         send_error('The lim A must be less or equal than lim B. Repeat it again')
 
         return
+
+    try:
+
+        relative_error = float(relative_error)
+
+    except:
+
+        send_error('The error is incorrect. Repeat it again')
+
+        return
+
+    if float(relative_error) < 0:
+
+        send_error('The error must be greater or equal than 0. Repeat it again')
+
+        return
+
 
     parse(function_string)
 
@@ -166,20 +183,24 @@ background.place(x=0, y=0)
 function_entry = tkinter.Entry(app, font=('Verdana', 20), foreground='white', background='grey')
 lim_a_entry = tkinter.Entry(app, font=('Verdana', 20), foreground='white', background='grey')
 lim_b_entry = tkinter.Entry(app, font=('Verdana', 20), foreground='white', background='grey')
+relative_error_entry = tkinter.Entry(app, font=('Verdana', 20), foreground='white', background='grey')
 
 function_text = tkinter.Label(app, text='F(x) =', font=('Verdana', 20), foreground='white', background='grey')
 lim_a_text = tkinter.Label(app, text='LimA =', font=('Verdana', 20), foreground='white', background='grey')
 lim_b_text = tkinter.Label(app, text='LimB =', font=('Verdana', 20), foreground='white', background='grey')
+relative_error_text = tkinter.Label(app, text='Error =', font=('Verdana', 20), foreground='white', background='grey')
 
 bottom = tkinter.Button(app, text='Integrate', foreground='white', background='grey', font=('Verdana', 20), command=validate)
 
 function_entry.place(x=120, y=20, width=450, height=50)
 lim_a_entry.place(x=120, y=100, width=450, height=50)
 lim_b_entry.place(x=120, y=180, width=450, height=50)
+relative_error_entry.place(x=120, y=260, width=450, height=50)
 
 function_text.place(x=10, y=20, width=100, height=50)
 lim_a_text.place(x=10, y=100, width=100, height=50)
 lim_b_text.place(x=10, y=180, width=100, height=50)
+relative_error_text.place(x=10, y=260, width=100, height=50)
 
 bottom.place(x=420, y=330, width=150, height=50)
 
