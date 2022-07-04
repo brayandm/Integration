@@ -1,5 +1,6 @@
-from evaluate import evaluate_function_in_range
-import math
+from unittest import result
+from evaluate import *
+from range_distribution import *
 
 def rectangle_rule(function, lim_a, lim_b, iterations):
 
@@ -7,7 +8,8 @@ def rectangle_rule(function, lim_a, lim_b, iterations):
 
     width = (lim_b - lim_a) / iterations
 
-    coordinates = evaluate_function_in_range(function, lim_a, lim_b, iterations * 2 + 1)
+    coordinates_x = get_uniform_range_distribution(lim_a, lim_b, iterations * 2 + 1)
+    coordinates = evaluate_function_in_range(function, coordinates_x)
 
     for it in range(iterations):
 
@@ -27,7 +29,8 @@ def trapezoidal_rule(function, lim_a, lim_b, iterations):
 
     width = (lim_b - lim_a) / iterations
 
-    coordinates = evaluate_function_in_range(function, lim_a, lim_b, iterations + 1)
+    coordinates_x = get_uniform_range_distribution(lim_a, lim_b, iterations + 1)
+    coordinates = evaluate_function_in_range(function, coordinates_x)
 
     for it in range(iterations):
 
@@ -48,7 +51,8 @@ def simpson_rule(function, lim_a, lim_b, iterations):
 
     width = (lim_b - lim_a) / (2 * iterations)
 
-    coordinates = evaluate_function_in_range(function, lim_a, lim_b, iterations * 2 + 1)
+    coordinates_x = get_uniform_range_distribution(lim_a, lim_b, iterations * 2 + 1)
+    coordinates = evaluate_function_in_range(function, coordinates_x)
 
     for it in range(iterations):
 
@@ -62,3 +66,26 @@ def simpson_rule(function, lim_a, lim_b, iterations):
     result *= width / 3
 
     return result
+
+def monte_carlo_method(function, lim_a, lim_b, iterations):
+
+    result = 0
+
+    width = (lim_b - lim_a) / iterations
+
+    coordinates_x = get_random_range_distribution(lim_a, lim_b, iterations)
+    coordinates = evaluate_function_in_range(function, coordinates_x)
+
+    for it in range(iterations):
+
+        value = coordinates[1][it]
+
+        if value != None:
+
+            result += value
+
+    result *= width
+
+    return result
+
+
