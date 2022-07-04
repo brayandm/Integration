@@ -1,6 +1,7 @@
 import os
 from errors import *
 
+# Chequeador de la sintaxis de la expresion matematica
 def expression_checker(expression_string):
 
     file = open('cache\\function_checker.py', 'w')

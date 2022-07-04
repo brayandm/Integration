@@ -1,3 +1,4 @@
+# Genera el codigo de la funcion para ejecutarlo luego
 def parse(expression_string):
 
     file = open('function.py', 'w')

@@ -1,3 +1,5 @@
+# Esto es una funcion decoradora que sirve para tranformar una integral con 
+# limites infinitos en una integral con limites finitos
 def inf_to_inf(function, lim_a, lim_b):
 
     def new_function(x):
@@ -18,6 +20,8 @@ def inf_to_inf(function, lim_a, lim_b):
 
     return new_function
 
+# Esto es una funcion decoradora que sirve para tranformar una integral con 
+# limites infinitos en una integral con limites finitos
 def inf_to_float(function, lim_a, lim_b):
 
     def new_function(x):
@@ -38,6 +42,8 @@ def inf_to_float(function, lim_a, lim_b):
 
     return new_function
 
+# Esto es una funcion decoradora que sirve para tranformar una integral con 
+# limites infinitos en una integral con limites finitos
 def float_to_inf(function, lim_a, lim_b):
 
     def new_function(x):

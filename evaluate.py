@@ -1,6 +1,7 @@
 import numpy
 from errors import *
 
+# Evaluando en X
 def evaluate_function(function, x):
 
     try:
@@ -11,7 +12,7 @@ def evaluate_function(function, x):
 
         return None
 
-
+# Evaluando varias X
 def evaluate_function_list(function, coordinates_x):
 
     coordinates_y = []
@@ -33,10 +34,3 @@ def evaluate_function_list(function, coordinates_x):
             integration_error()
 
     return coordinates_y
-
-
-def evaluate_function_in_range(function, coordinates_x):
-
-    coordinates_y = evaluate_function_list(function, coordinates_x)
-
-    return (coordinates_x, coordinates_y)

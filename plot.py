@@ -2,6 +2,7 @@ import matplotlib.pyplot as pyplot
 from evaluate import *
 from range_distribution import *
 
+# Elimina los Nones de las listas
 def delete_nones(list_a, list_b):
 
     assert(len(list_a) == len(list_b))
@@ -22,14 +23,14 @@ def delete_nones(list_a, list_b):
         list_a.append(x[0])
         list_b.append(x[1])
 
+# Imprime la funcion usando matplotlib
 def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_lim_b, number_of_points):
 
     assert(a <= b)
     assert(limA <= limB)
 
-    coordinates_x = get_uniform_range_distribution(a, b, number_of_points)
-    coordinates = evaluate_function_in_range(func, coordinates_x)
-    (coordinatesX, coordinatesY) = coordinates
+    coordinatesX = get_uniform_range_distribution(a, b, number_of_points)
+    coordinatesY = evaluate_function_list(func, coordinatesX)
 
     delete_nones(coordinatesX, coordinatesY)
 
