@@ -17,11 +17,13 @@ def close_program():
 
     exit(0)
 
+def send_message(text, title):
+
+    messagebox.showinfo(message=text, title=title)
 
 def send_error(text):
 
-    messagebox.showinfo(message=text, title="Error")
-
+    send_message(text, 'Error')
 
 def clean_window():
 
@@ -30,6 +32,10 @@ def clean_window():
         if x != background:
 
             x.place_forget()
+
+def show_help():
+
+    send_message('F(x) - math expression containing only the variable \'x\'\nLimA - float number or \'-inf\'\nLimB - float number or \'inf\'\nError - float positive number representing the relative error','help')
 
 
 def validate():
@@ -89,9 +95,9 @@ def validate():
 
         return
 
-    if float(relative_error) < 0:
+    if float(relative_error) <= 0:
 
-        send_error('The error must be greater or equal than 0. Repeat it again')
+        send_error('The error must be greater than 0. Repeat it again')
 
         return
 
@@ -191,6 +197,7 @@ lim_b_text = tkinter.Label(app, text='LimB =', font=('Verdana', 20), foreground=
 relative_error_text = tkinter.Label(app, text='Error =', font=('Verdana', 20), foreground='white', background='grey')
 
 bottom = tkinter.Button(app, text='Integrate', foreground='white', background='grey', font=('Verdana', 20), command=validate)
+bottom_help = tkinter.Button(app, text='Help', foreground='white', background='grey', font=('Verdana', 20), command=show_help)
 
 function_entry.place(x=120, y=20, width=450, height=50)
 lim_a_entry.place(x=120, y=100, width=450, height=50)
@@ -203,5 +210,6 @@ lim_b_text.place(x=10, y=180, width=100, height=50)
 relative_error_text.place(x=10, y=260, width=100, height=50)
 
 bottom.place(x=420, y=330, width=150, height=50)
+bottom_help.place(x=10, y=330, width=150, height=50)
 
 app.mainloop()
