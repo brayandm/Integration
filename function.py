@@ -8,11 +8,11 @@ def function(x):
 
 	try:
 
-		return 3
+		return x
 
 	except OverflowError:
 
-		return float('inf')
+		return float(0)
 
 	except NameError:
 
