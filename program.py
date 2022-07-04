@@ -124,7 +124,7 @@ def validate():
         new_lim_a = lim_a
         new_lim_b = lim_b
 
-    value = adaptive_integration_method(new_function, new_lim_a, new_lim_b, ITERATIONS, RELATIVE_ERROR)
+    value = adaptive_integration_method(new_function, new_lim_a, new_lim_b, ITERATIONS, relative_error)
 
     if check_name_error():
 
