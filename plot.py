@@ -1,5 +1,6 @@
 import matplotlib.pyplot as pyplot
 from evaluate import *
+from range_distribution import *
 
 def delete_nones(list_a, list_b):
 
@@ -26,7 +27,8 @@ def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_
     assert(a <= b)
     assert(limA <= limB)
 
-    coordinates = evaluate_function_in_range(func, a, b, number_of_points)
+    coordinates_x = get_uniform_range_distribution(a, b, number_of_points)
+    coordinates = evaluate_function_in_range(func, coordinates_x)
     (coordinatesX, coordinatesY) = coordinates
 
     delete_nones(coordinatesX, coordinatesY)

@@ -106,7 +106,7 @@ def validate():
         new_lim_a = lim_a
         new_lim_b = lim_b
 
-    value = simpson_rule(new_function, new_lim_a, new_lim_b, ITERATIONS)
+    value = monte_carlo_method(new_function, new_lim_a, new_lim_b, ITERATIONS)
 
     if check_name_error():
 
