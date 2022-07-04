@@ -179,6 +179,7 @@ def validate():
 
 app = tkinter.Tk()
 
+app.title('Integration')
 app.geometry('600x400')
 app.resizable(False, False)
 
