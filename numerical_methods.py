@@ -1,4 +1,3 @@
-from sympy import re
 from evaluate import *
 from range_distribution import *
 
