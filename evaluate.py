@@ -1,4 +1,3 @@
-import numpy
 from errors import *
 
 def evaluate_function(function, x):
