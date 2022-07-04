@@ -12,6 +12,7 @@ from tkinter import messagebox
 import tkinter
 
 ITERATIONS = 100000
+RELATIVE_ERROR = 0.01
 
 def close_program():
 
@@ -106,7 +107,7 @@ def validate():
         new_lim_a = lim_a
         new_lim_b = lim_b
 
-    value = monte_carlo_method(new_function, new_lim_a, new_lim_b, ITERATIONS)
+    value = adaptive_integration_method(new_function, new_lim_a, new_lim_b, ITERATIONS, RELATIVE_ERROR)
 
     if check_name_error():
 

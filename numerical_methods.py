@@ -1,4 +1,4 @@
-from unittest import result
+from sympy import re
 from evaluate import *
 from range_distribution import *
 
@@ -88,4 +88,20 @@ def monte_carlo_method(function, lim_a, lim_b, iterations):
 
     return result
 
+def adaptive_integration_method(function, lim_a, lim_b, iterations, relative_error, level = 1, level_limit = 5):
 
+    value = simpson_rule(function, lim_a, lim_a, iterations)
+    better_value = simpson_rule(function, lim_a, lim_a, iterations * 2)
+
+    if level >= level_limit:
+
+        return better_value
+
+    if abs(value - better_value) / abs(better_value) < relative_error:
+
+        return better_value
+
+    middle = (lim_a + lim_b) / 2
+
+    adaptive_integration_method(function, lim_a, middle, iterations, relative_error, level + 1, level_limit)
+    adaptive_integration_method(function, middle, lim_b, iterations, relative_error, level + 1, level_limit)
