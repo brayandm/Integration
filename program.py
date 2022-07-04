@@ -108,6 +108,15 @@ def validate():
 
     integrate(function_string, lim_a, lim_b, relative_error)
 
+# Despedida del programa
+def farewell():
+
+    clean_window()
+
+    farewell = tkinter.Button(app, text='Have a nice day :)', font=('Verdana', 20), foreground='white', background='grey', command=close_program)
+
+    farewell.place(x=100, y=150, width=400, height=100)
+
 # Integra la funcion definida
 def integrate(function_string, lim_a, lim_b, relative_error):
 
@@ -143,11 +152,15 @@ def integrate(function_string, lim_a, lim_b, relative_error):
 
     if check_name_error():
 
+        farewell()
+
         send_error('There is a variable name error, the variable name in the function must be \'x\'')
 
         return
 
     if check_integration_error():
+
+        farewell()
 
         send_error('The function is not integrable in this interval')
 
@@ -179,11 +192,7 @@ def integrate(function_string, lim_a, lim_b, relative_error):
 
         plot_function(function.function, function_string, lim_a - (lim_b - lim_a) * 0.2, lim_b + (lim_b - lim_a) * 0.2, lim_a, lim_b, value, lim_a, lim_b, ITERATIONS)
 
-    clean_window()
-
-    farewell = tkinter.Button(app, text='Have a nice day :)', font=('Verdana', 20), foreground='white', background='grey', command=close_program)
-
-    farewell.place(x=100, y=150, width=400, height=100)
+    farewell()
 
 
 # Creando la ventana
