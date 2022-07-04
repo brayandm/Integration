@@ -35,7 +35,7 @@ def clean_window():
 
 def show_help():
 
-    send_message('F(x) - math expression containing only the variable \'x\'\nLimA - float number or \'-inf\'\nLimB - float number or \'inf\'\nError - float positive number representing the relative error','help')
+    send_message('F(x) - math expression containing only the variable \'x\'\nLimA - float number or \'-inf\'\nLimB - float number or \'inf\'\nError - float positive number representing the relative error','Help')
 
 
 def validate():
@@ -63,7 +63,7 @@ def validate():
 
     except:
 
-        send_error('The lim A is incorrect. Repeat it again')
+        send_error('The LimA is incorrect. Repeat it again')
 
         return
 
@@ -75,13 +75,13 @@ def validate():
 
     except:
 
-        send_error('The lim B is incorrect. Repeat it again')
+        send_error('The LimB is incorrect. Repeat it again')
 
         return
 
     if float(lim_a) > float(lim_b):
 
-        send_error('The lim A must be less or equal than lim B. Repeat it again')
+        send_error('The LimA must be less or equal than LimB. Repeat it again')
 
         return
 
@@ -91,13 +91,13 @@ def validate():
 
     except:
 
-        send_error('The error is incorrect. Repeat it again')
+        send_error('The Error is incorrect. Repeat it again')
 
         return
 
     if float(relative_error) <= 0:
 
-        send_error('The error must be greater than 0. Repeat it again')
+        send_error('The Error must be greater than 0. Repeat it again')
 
         return
 
