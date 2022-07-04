@@ -1,5 +1,4 @@
-from turtle import back
-from evaluate import evaluate_function_list
+from evaluate import *
 from expression_checker import *
 from numerical_methods import *
 from clear_cache import *

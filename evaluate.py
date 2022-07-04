@@ -1,4 +1,3 @@
-import numpy
 from errors import *
 
 # Evaluando en X
