@@ -1,3 +1,4 @@
+from turtle import back
 from evaluate import evaluate_function_list
 from expression_checker import *
 from numerical_methods import *
@@ -12,6 +13,11 @@ import tkinter
 
 ITERATIONS = 100000
 
+def close_program():
+
+    exit(0)
+
+
 def send_error(text):
 
     messagebox.showinfo(message=text, title="Error")
@@ -21,7 +27,9 @@ def clean_window():
 
     for x in app.place_slaves():
 
-        x.place_forget()
+        if x != background:
+
+            x.place_forget()
 
 
 def validate():
@@ -140,11 +148,9 @@ def validate():
 
     clean_window()
 
-    background_image = tkinter.PhotoImage(file='function_graph.png')
-    background = tkinter.Label(app, image=background_image)
-    background.place(x=0, y=0)
+    farewell = tkinter.Button(app, text='Have a nice day :)', font=('Verdana', 20), foreground='white', background='grey', command=close_program)
 
-
+    farewell.place(x=100, y=150, width=400, height=100)
 
 
 app = tkinter.Tk()
