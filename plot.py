@@ -58,7 +58,7 @@ def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_
 
         else:
 
-            pyplot.title(r'$\int_{-\infty}^{\infty}%s=%.2f$' % (str(funcString), float(value)))
+            pyplot.title(r'$\int_{-\infty}^{\infty}%s=%.5f$' % (str(funcString), float(value)))
 
     elif float(print_lim_a) == float('-inf'):
     
@@ -72,7 +72,7 @@ def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_
 
         else:
 
-            pyplot.title(r'$\int_{-\infty}^{%.2f}%s=%.2f$' % (float(print_lim_b), str(funcString), float(value)))
+            pyplot.title(r'$\int_{-\infty}^{%.2f}%s=%.5f$' % (float(print_lim_b), str(funcString), float(value)))
 
     elif float(print_lim_b) == float('inf'):
 
@@ -86,7 +86,7 @@ def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_
 
         else:
 
-            pyplot.title(r'$\int_{%.2f}^{\infty}%s=%.2f$' % (float(print_lim_a), str(funcString), float(value)))
+            pyplot.title(r'$\int_{%.2f}^{\infty}%s=%.5f$' % (float(print_lim_a), str(funcString), float(value)))
 
     else:
 
@@ -100,7 +100,7 @@ def plot_function(func, funcString, a, b, limA, limB, value, print_lim_a, print_
 
         else:
 
-            pyplot.title(r'$\int_{%.2f}^{%.2f}%s=%.2f$' % (float(print_lim_a), float(print_lim_b), str(funcString), float(value)))
+            pyplot.title(r'$\int_{%.2f}^{%.2f}%s=%.5f$' % (float(print_lim_a), float(print_lim_b), str(funcString), float(value)))
 
     pyplot.plot(coordinatesX, coordinatesY) 
     pyplot.grid()

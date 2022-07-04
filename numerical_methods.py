@@ -90,18 +90,17 @@ def monte_carlo_method(function, lim_a, lim_b, iterations):
 
 def adaptive_integration_method(function, lim_a, lim_b, iterations, relative_error, level = 1, level_limit = 5):
 
-    value = simpson_rule(function, lim_a, lim_a, iterations)
-    better_value = simpson_rule(function, lim_a, lim_a, iterations * 2)
+    value = simpson_rule(function, lim_a, lim_b, iterations)
+    better_value = simpson_rule(function, lim_a, lim_b, iterations * 2)
 
     if level >= level_limit:
 
         return better_value
 
-    if abs(value - better_value) / abs(better_value) < relative_error:
+    if abs(better_value) == 0 or abs(value - better_value) / abs(better_value) < relative_error:
 
         return better_value
 
     middle = (lim_a + lim_b) / 2
 
-    adaptive_integration_method(function, lim_a, middle, iterations, relative_error, level + 1, level_limit)
-    adaptive_integration_method(function, middle, lim_b, iterations, relative_error, level + 1, level_limit)
+    return adaptive_integration_method(function, lim_a, middle, iterations, relative_error, level + 1, level_limit) + adaptive_integration_method(function, middle, lim_b, iterations, relative_error, level + 1, level_limit)
